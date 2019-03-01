@@ -18,9 +18,26 @@ public class MonitoringIO {
 
             switch (chooseInput) {
                 case 1:
-                    System.out.println("Input Observatory Data.");
-                    String repData = scan2.nextLine();
-                    System.out.println(" rep = " + repData);
+                    System.out.println("Input name of Observatory");
+                    String obName = scan2.nextLine();
+                    Observatory Ob1 = new Observatory();
+                    Ob1.setName(obName);
+
+                    System.out.println("Enter Country");
+                    String obCountry = scan2.nextLine();
+                    Ob1.setCountry(obCountry);
+
+                    System.out.println("Enter Year Started");
+                    int obYear = scan.nextInt();
+                    Ob1.setYearStarted(obYear);
+
+                    System.out.println("Enter Area Covered by Observatory In Square Kilometers");
+                    double obArea = scan.nextDouble();
+                    Ob1.setAreaInSquareMeters(obArea);
+
+
+
+                    System.out.println(Ob1.toString());
                     break;
                 case 2:
                     System.out.println("Input 'Galamsay' Data.");
