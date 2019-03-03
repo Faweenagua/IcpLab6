@@ -8,6 +8,8 @@ public class MonitoringIO {
 
         Scanner scan2 = new Scanner(System.in);
 
+        Observatory ob1 = null;
+
         while (true) {
             System.out.println(" ");
             System.out.println("**************************************************");
@@ -20,27 +22,59 @@ public class MonitoringIO {
                 case 1:
                     System.out.println("Input name of Observatory");
                     String obName = scan2.nextLine();
-                    Observatory Ob1 = new Observatory();
-                    Ob1.setName(obName);
+                    ob1 = new Observatory();
+                    ob1.setName(obName);
 
                     System.out.println("Enter Country");
                     String obCountry = scan2.nextLine();
-                    Ob1.setCountry(obCountry);
+                    ob1.setCountry(obCountry);
 
                     System.out.println("Enter Year Started");
                     int obYear = scan.nextInt();
-                    Ob1.setYearStarted(obYear);
+                    ob1.setYearStarted(obYear);
 
                     System.out.println("Enter Area Covered by Observatory In Square Kilometers");
                     double obArea = scan.nextDouble();
-                    Ob1.setAreaInSquareMeters(obArea);
+                    ob1.setAreaInSquareMeters(obArea);
 
 
-
-                    System.out.println(Ob1.toString());
+                    Monitoring.observatories.add(ob1);
                     break;
+
                 case 2:
-                    System.out.println("Input 'Galamsay' Data.");
+                    System.out.println("Input 'Galamsey' Data for " + Monitoring.observatories.get(Monitoring.observatories.size()-1).getName() + " observatory");
+
+                    System.out.println("How many 'Galamsey' activities will you like to record");
+                    int numOfevents = scan.nextInt();
+
+                    for (int i =0; i<numOfevents; i++){
+                        System.out.println("Enter colour of vegetation (Green, Yellow or Brown)");
+                        String vegColor = scan2.nextLine();
+                        Galamsey galamsey = new Galamsey();
+                        galamsey.setVegetationColour(vegColor);
+
+                        if (vegColor.toLowerCase().equals("green")) galamsey.setVegetationColourValue(1);
+                        if (vegColor.toLowerCase().equals("yellow")) galamsey.setVegetationColourValue(2);
+                        if (vegColor.toLowerCase().equals("brown")) galamsey.setVegetationColourValue(3);
+
+
+                        System.out.println("Enter location of 'Galamsey' site in latitude");
+                        int siteLat = scan.nextInt();
+                        galamsey.setVegetationLongitude(siteLat);
+
+                        System.out.println("Enter location of 'Galamsey' site in longitude");
+                        int siteLong = scan.nextInt();
+                        galamsey.setVegetationLatitude(siteLong);
+
+
+                        System.out.println("Enter the year this 'Galamsey' event started");
+                        int galYear = scan.nextInt();
+                        galamsey.setEventYear(galYear);
+
+                        ob1.addEvent(galamsey);
+
+                    }
+
                     int galamData = scan.nextInt();
                     break;
                 case 3:

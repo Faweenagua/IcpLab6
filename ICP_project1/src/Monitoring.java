@@ -19,7 +19,7 @@ import java.util.*;
 
 public class Monitoring {
 	
-	private ArrayList<Observatory> observatories = new ArrayList<Observatory>();
+	public static ArrayList<Observatory> observatories = new ArrayList<Observatory>();
 	
 	
 	
