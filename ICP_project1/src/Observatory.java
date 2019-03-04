@@ -37,7 +37,7 @@ public class Observatory {
         this.yearStarted = yearStarted;
         this.areaInSquareKilometers = areaInSquareKilometers;
     }
-    public void addEvent(Galamsey g){ this.events.add(g);}
+    public void addEvent(Galamsey g){this.events.add(g);}
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }

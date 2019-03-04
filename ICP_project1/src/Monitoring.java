@@ -20,7 +20,7 @@ import java.util.*;
 public class Monitoring {
 	
 	public static ArrayList<Observatory> observatories = new ArrayList<Observatory>();
-	
+
 	
 	
 	/**
@@ -133,8 +133,22 @@ public class Monitoring {
 	     
 		  
 	}
-	
-	
+
+	/**
+	 * Checks the Observatory list for any observatory with a specified name.
+	 * @param nameOfObservatory a string of the name of observatory you want to check.
+	 * @return returns true if name is in observatory list, and false if not.
+	 */
+	public static boolean checkObservatoryList(String nameOfObservatory){
+		boolean isItEqual = false;
+		for(Observatory anObservatory : observatories){
+			if(anObservatory.getName().equals(nameOfObservatory)){
+				isItEqual = true;
+				break;
+			}
+		}
+		return isItEqual;
+	}
 	
 	/**
 	 

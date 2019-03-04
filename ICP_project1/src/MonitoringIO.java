@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class MonitoringIO {
 
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -11,12 +13,25 @@ public class MonitoringIO {
         Observatory ob1 = null;
 
         while (true) {
-            System.out.println(" ");
-            System.out.println("**************************************************");
-            System.out.println("***** Please select a task in the menu below *****");
-            System.out.println("**************************************************");
-            System.out.println("1 to Enter Observatory Data.\n2 to Enter 'Galamsay' Data.\n3 to provide monitoring statistics. or \n0 to Exit");
-            int chooseInput = scan.nextInt();
+            int chooseInput;
+            if (Monitoring.observatories.isEmpty()){
+                System.out.println(" ");
+                System.out.println("***************************************************************");
+                System.out.println("***** Observatory list is empty, Create a new observatory *****");
+                System.out.println("***************************************************************");
+                System.out.println(" ");
+                chooseInput = 1;
+
+
+            }else {
+                System.out.println(" ");
+                System.out.println("**************************************************");
+                System.out.println("***** Please select a task in the menu below *****");
+                System.out.println("**************************************************");
+                System.out.println("1 to Enter Observatory Data.\n2 to Enter 'Galamsay' Data.\n3 to provide monitoring statistics.\n0 to Exit");
+                chooseInput = scan.nextInt();
+            }
+
 
             switch (chooseInput) {
                 case 1:
@@ -39,17 +54,30 @@ public class MonitoringIO {
 
 
                     Monitoring.observatories.add(ob1);
+                    System.out.println("\n<<>> Notification: new observatory added <<>>");
                     break;
 
-                case 2:
-                    System.out.println("Input 'Galamsey' Data for " + Monitoring.observatories.get(Monitoring.observatories.size()-1).getName() + " observatory");
 
-                    System.out.println("How many 'Galamsey' activities will you like to record");
+
+                case 2:
+
+                    System.out.println("Select Observatory");
+
+                    for (Observatory anObservatory: Monitoring.observatories){
+                        System.out.println(Monitoring.observatories.indexOf(anObservatory)+1 + " " + anObservatory.getName() + "observatory");
+                    }
+                    int nameOfob = scan.nextInt();
+
+                    System.out.println("\n[[] Input 'Galamsey' Data for the " + Monitoring.observatories.get(nameOfob-1).getName() + " observatory []]");
+
+                    System.out.println("\nHow many 'Galamsey' activities will you like to record");
                     int numOfevents = scan.nextInt();
 
                     for (int i =0; i<numOfevents; i++){
-                        System.out.println("Enter colour of vegetation (Green, Yellow or Brown)");
+                        System.out.println("\nInput Data for 'Galamsey' event " + i+1);
+                        System.out.println("\nEnter colour of vegetation (Green, Yellow or Brown) or 'exit' to quit");
                         String vegColor = scan2.nextLine();
+                        if(vegColor.toLowerCase().equals("exit")) break;
                         Galamsey galamsey = new Galamsey();
                         galamsey.setVegetationColour(vegColor);
 
@@ -59,11 +87,11 @@ public class MonitoringIO {
 
 
                         System.out.println("Enter location of 'Galamsey' site in latitude");
-                        int siteLat = scan.nextInt();
+                        double siteLat = scan.nextDouble();
                         galamsey.setVegetationLongitude(siteLat);
 
                         System.out.println("Enter location of 'Galamsey' site in longitude");
-                        int siteLong = scan.nextInt();
+                        double siteLong = scan.nextDouble();
                         galamsey.setVegetationLatitude(siteLong);
 
 
@@ -71,11 +99,9 @@ public class MonitoringIO {
                         int galYear = scan.nextInt();
                         galamsey.setEventYear(galYear);
 
-                        ob1.addEvent(galamsey);
-
+                        Monitoring.observatories.get(nameOfob-1).addEvent(galamsey);
+                        System.out.println("\n<<>> Notification: 'Galamsey' data added <<>>");
                     }
-
-                    int galamData = scan.nextInt();
                     break;
                 case 3:
 
