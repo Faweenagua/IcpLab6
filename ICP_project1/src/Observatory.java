@@ -76,7 +76,7 @@ public class Observatory {
                 Double.compare(that.getAreaInSquareMeters(), getAreaInSquareMeters()) == 0 &&
                 Objects.equals(getName(), that.getName()) &&
                 Objects.equals(getCountry(), that.getCountry()) &&
-                Objects.equals(getEvents(), that.getEvents()); }
+                Objects.equals(getEvents(), that.getEvents());  }
     /**
      * hash function
      * @return
