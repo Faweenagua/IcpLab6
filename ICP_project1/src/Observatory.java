@@ -37,7 +37,7 @@ public class Observatory {
         this.yearStarted = yearStarted;
         this.areaInSquareKilometers = areaInSquareKilometers;
     }
-    public void addEvent(Galamsey g){this.events.add(g);}
+    public void addEvent(Galamsey g){ this.events.add(g);}
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -65,7 +65,7 @@ public class Observatory {
     /**
      * equals method to compare observatories
      * @param o the object to compare with main object
-     * @return boolean true if equal and false if unewual
+     * @return boolean true if equal and false if unequal
      */
     @Override
     public boolean equals(Object o) {
@@ -114,7 +114,7 @@ public class Observatory {
         return sum / count;
     }
     /**
-     * Creates a list of all “galamsey” recorded at the observatory with a colour value greater than a given number
+     * Creates a list of all galamsey recorded at the observatory with a colour value greater than a given number
      * @param number arbitrary number to compare colour values to
      * @return
      */
@@ -128,4 +128,39 @@ public class Observatory {
         }
         return list;
     }
+    
+    /**
+     * Creates a list of all galamsey recorded at the observatory with a colour value lesser than a given number
+     * @param number arbitrary number to compare colour values to
+     * @return
+     */
+    public ArrayList<Galamsey> galamseysWithColourValueLesserThan(double number) {
+
+        ArrayList<Galamsey> list = new ArrayList<Galamsey>();
+        for (Galamsey i : this.getEvents()) {
+            if (i.getVegetationColourValue() < number) {
+                list.add(i);
+            }
+        }
+        return list;
+    }
+    
+    /**
+     * Creates a list of all galamsey recorded at the observatory with a colour value equal to a given number
+     * @param number arbitrary number to compare colour values to
+     * @return
+     */
+    public ArrayList<Galamsey> galamseysWithColourValueEqualTo(double number) {
+
+        ArrayList<Galamsey> list = new ArrayList<Galamsey>();
+        for (Galamsey i : this.getEvents()) {
+            if (i.getVegetationColourValue() == number) {
+                list.add(i);
+            }
+        }
+        return list;
+    }
 }
+
+
+
