@@ -1,4 +1,8 @@
+
 import java.util.*;
+
+
+
 
 /**
  
@@ -19,8 +23,8 @@ import java.util.*;
 
 public class Monitoring {
 	
-	public static ArrayList<Observatory> observatories = new ArrayList<Observatory>();
-
+	private ArrayList<Observatory> observatories = new ArrayList<Observatory>();
+	
 	
 	
 	/**
@@ -130,24 +134,75 @@ public class Monitoring {
              }
 		System.out.println(List);
 	    	   return List;
-	     
-		  
+	       
 	}
-
 	/**
-	 * Checks the Observatory list for any observatory with a specified name.
-	 * @param nameOfObservatory a string of the name of observatory you want to check.
-	 * @return returns true if name is in observatory list, and false if not.
+	 
+	 * This method returns a list of all Galamsey whose vegetation colour value is lesser than some arbitrary constant
+	 
+	 * @param number
+	 
+	 * @return List
+	 
 	 */
-	public static boolean checkObservatoryList(String nameOfObservatory){
-		boolean isItEqual = false;
-		for(Observatory anObservatory : observatories){
-			if(anObservatory.getName().equals(nameOfObservatory)){
-				isItEqual = true;
-				break;
+	
+	
+	public ArrayList<Galamsey> ListOfGalamseysWithColourValueLesserThan(double number) {
+		  ArrayList<Galamsey> List=new ArrayList<Galamsey>(); 
+			for(Observatory i: observatories) {
+				List.addAll(i.galamseysWithColourValueLesserThan(number));
+	             }
+			System.out.println(List);
+		    	   return List;
+		       
+		}
+	
+	/**
+	 
+	 * This method returns a list of all Galamsey whose vegetation colour value is equal to some arbitrary constant
+	 
+	 * @param number
+	 
+	 * @return List
+	 
+	 */
+	
+	public ArrayList<Galamsey> ListOfGalamseysWithColourValueEqualTo(double number) {
+		  ArrayList<Galamsey> List=new ArrayList<Galamsey>(); 
+			for(Observatory i: observatories) {
+				List.addAll(i.galamseysWithColourValueEqualTo(number));
+	             }
+			System.out.println(List);
+		    	   return List;   
+			  
+		}
+	
+	public Observatory observatoryWithFewerEvent(){
+		Observatory nob = observatories.get(0);
+		int minSize = observatories.get(0).getEvents().size();
+		
+		for (Observatory o :observatories) {
+			if(o.getEvents().size()<minSize) {
+				minSize = o.getEvents().size();
+				nob = o;
 			}
 		}
-		return isItEqual;
+		
+		return nob;
+	}
+	
+	public Observatory observatoryWithHigherEvent(){
+		Observatory nob = observatories.get(0);
+		int maxSize = observatories.get(0).getEvents().size();
+		
+		for (Observatory o :observatories) {
+			if(o.getEvents().size()>maxSize) {
+				maxSize = o.getEvents().size();
+				nob = o;
+			}
+		}
+		
+		return nob;
 	}
 	
 	/**
@@ -209,11 +264,11 @@ public class Monitoring {
        
 		Observatory e = new Observatory("force","Ghana",2000, 50000,events);
 		
-        Observatory t = new Observatory("force2","Togo",3000, 100000,event);
+                Observatory t = new Observatory("force2","Togo",3000, 100000,event);
 	    
 		
 		
-	    monitor.observatories.add(e);
+	        monitor.observatories.add(e);
 	   
 		monitor.observatories.add(t);
 	   
@@ -222,9 +277,16 @@ public class Monitoring {
 		monitor.getLargestGalamseyColourValueEverRecorded();
 	   
 		monitor.ListOfGalamseysWithColourValueGreaterThan(0);
+		
+		monitor.ListOfGalamseysWithColourValueEqualTo(1);
+		
+		monitor.ListOfGalamseysWithColourValueLesserThan(3);
         
-
+		System.out.println("\nMin events " + monitor.observatoryWithFewerEvent().toString());
+		
+		System.out.println("\nMax events " + monitor.observatoryWithHigherEvent().toString());
 	}
  
 }
+
 
