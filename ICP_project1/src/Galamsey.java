@@ -190,9 +190,11 @@ public class Galamsey {
      * toString method for Galamsey class
      */
     public String toString() {
-        return ("The colour of the vegetation is "+ getVegetationColour()+" with an assigned colour value of "
-                +getVegetationColourValue()+" with the coordinates, " + getFormattedLocationOfVegetationLatitudeandLongitude() +
-                " which happened on in the year " + getEventYear());
+        return ("\n'Galamsey' Event: "+
+                "\nColour of vegetation: "+ getVegetationColour()+
+                "\nColour value: " + getVegetationColourValue()+
+                "\nLocation: " + getFormattedLocationOfVegetationLatitudeandLongitude() +
+                "\nYear started: " + getEventYear()+"\n");
     }
 
     /**

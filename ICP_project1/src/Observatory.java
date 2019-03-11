@@ -78,13 +78,12 @@ public class Observatory {
      */
     @Override
     public String toString() {
-        return "Observatory{" +
-                "name='" + name + '\'' +
-                ", country='" + country + '\'' +
-                ", yearStarted=" + yearStarted +
-                ", areaInSquareMeters=" + areaInSquareKilometers +
-                ", events=" + events +
-                '}'; }
+        return "Observatory " +
+                "\nName: " + name +
+                "\nCountry: " + country +
+                "\nYearStarted: " + yearStarted +
+                "\nArea In Square Kilometers: " + areaInSquareKilometers + "km^2";
+    }
     /**
      * equals method to compare observatories
      * @param o the object to compare with main object
@@ -143,7 +142,6 @@ public class Observatory {
      * @return
      */
     public ArrayList<Galamsey> galamseysWithColourValueGreaterThan(double number) {
-
         ArrayList<Galamsey> list = new ArrayList<Galamsey>();
         for (Galamsey i : this.getEvents()) {
             if (i.getVegetationColourValue() > number) {
