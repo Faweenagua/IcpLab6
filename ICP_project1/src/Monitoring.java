@@ -10,7 +10,7 @@ import java.util.*;
  
  * @author Eugenia Mawuenya AKPO
  
- * @author Michael AGYEMAN-PREMPEH
+ * @author Michael Dankwah AGYEMAN-PREMPEH
  
  * @author Issifu ALHASSAN
  
