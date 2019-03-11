@@ -1,3 +1,10 @@
+/*
+ *A monitoring input/output class that monitors Galamsey objects.
+ *@author Michael Dankwah AGYEMAN-PREMPEH
+ *@author Alhassan ISSIFU
+ *@author Francis AWEENGUA
+ *@author Eugenia AKPO
+ */
 
 import java.util.Scanner;
 
