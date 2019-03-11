@@ -29,7 +29,6 @@ public class Galamsey {
     public Galamsey(String vegCol, int colVal) {
         this.vegetationColour = vegCol;
         this.colourValue = colVal;
-
     };
 
     /**
