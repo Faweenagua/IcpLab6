@@ -261,6 +261,9 @@ public class MonitoringIO {
             }
 
         }
+        
+        scan.close();
+        scan2.close();
 
     }
 }
