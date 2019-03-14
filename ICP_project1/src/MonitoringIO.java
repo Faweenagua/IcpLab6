@@ -186,22 +186,22 @@ public class MonitoringIO {
                                     case 2:
                                         // Shows all "galamsey" events with vegetation colour values below a certain arbitrary value specified by the user
 
-                                        /*System.out.println("\nInput maximum color value: ");
+                                        System.out.println("\nInput maximum color value: ");
                                         int maxColorValue = scan.nextInt();
-                                        System.out.println("\nThe following has 'Galamsey' values less than " + leastInstances);
-                                        for (Galamsey galam : Monitoring.ListOfGalamseysWithColourValueGreaterThan(leastInstances)){
+                                        System.out.println("\nThe following has 'Galamsey' values less than " + maxColorValue);
+                                        for (Galamsey galam : Monitoring.ListOfGalamseysWithColourValueLessThan(maxColorValue)){
                                             System.out.println(galam.toString());
-                                        }*/
+                                        }
                                         break;
                                     case 3:
                                         //Shows all "galamsey" events with vegetation colour values equal to a certain arbitrary value specified by the user
 
-                                        /*System.out.println("\nInput color value: ");
+                                        System.out.println("\nInput color value: ");
                                         int colorValue = scan.nextInt();
-                                        System.out.println("\nThe following has 'Galamsey' values equal to " + leastInstances);
-                                        for (Galamsey galam : Monitoring.ListOfGalamseysWithColourValueGreaterThan(leastInstances)){
+                                        System.out.println("\nThe following has 'Galamsey' values equal to " + colorValue);
+                                        for (Galamsey galam : Monitoring.ListOfGalamseysWithColourValueEqualTo(colorValue)){
                                             System.out.println(galam.toString());
-                                        }*/
+                                        }
                                         break;
                                     default:
                                         //Prints an error if program records wrong input from the user
