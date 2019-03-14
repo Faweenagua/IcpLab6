@@ -134,6 +134,28 @@ public class Monitoring {
 		  
 	}
 
+	public static ArrayList<Galamsey> ListOfGalamseysWithColourValueLessThan(double number) {
+		ArrayList<Galamsey> List=new ArrayList<Galamsey>();
+		for(Observatory i: observatories) {
+			List.addAll(i.galamseysWithColourValueLesserThan(number));
+		}
+		System.out.println(List);
+		return List;
+
+
+	}
+
+	public static ArrayList<Galamsey> ListOfGalamseysWithColourValueEqualTo(double number) {
+		ArrayList<Galamsey> List=new ArrayList<Galamsey>();
+		for(Observatory i: observatories) {
+			List.addAll(i.galamseysWithColourValueEqualTo(number));
+		}
+		System.out.println(List);
+		return List;
+
+
+	}
+
 	/**
 	 * Checks the Observatory list for any observatory with a specified name.
 	 * @param nameOfObservatory a string of the name of observatory you want to check.
