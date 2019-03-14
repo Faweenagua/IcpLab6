@@ -47,9 +47,6 @@ public class Monitoring {
 	private static Observatory observatory;
 	
 	public static Observatory getObservatoryWithLargestAverage(){
-		if(observatories.isEmpty()){return null;}
-		else{
-		
 		for(Observatory i: observatories) {
 		   
 			largestAverage.add(i.averageGalamseyColourValueRecorded());
@@ -63,10 +60,8 @@ public class Monitoring {
 			if(i.averageGalamseyColourValueRecorded()==highest) { observatory = i;}
 		   
 			}
-		
-		}}
-		
-		System.out.println(observatory);
+		}
+		//System.out.println(observatory);
 		
 		return observatory;
 		

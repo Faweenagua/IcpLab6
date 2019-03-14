@@ -98,7 +98,7 @@ public class Observatory {
         if(brown>=yellow && brown>=green){return 3;}
         if(yellow>=green && yellow>=brown){return 2;}
         if(green>=yellow && green>=brown){return 1;}
-        return 0;
+        return -1;
     }
     /**
      * gets the average galamsey colour value recorded

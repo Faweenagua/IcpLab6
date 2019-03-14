@@ -146,8 +146,10 @@ public class MonitoringIO {
                         switch (chooseInfoType) {
                             case 1:
                                 // displays observatory with the largest average galamsey
-                                System.out.println("\nThe observatory with Largest average 'Galamsey' is\n");
-                                System.out.println(Monitoring.getObservatoryWithLargestAverage().toString());
+                                try {
+                                    System.out.println("\nThe observatory with Largest average 'Galamsey' is\n");
+                                    System.out.println(Monitoring.getObservatoryWithLargestAverage().getName());
+                                }catch(NullPointerException e){}
                                 break;
                             case 2:
                                 // displays highest galamsey color value recorded
