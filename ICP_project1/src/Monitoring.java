@@ -47,6 +47,8 @@ public class Monitoring {
 	private static Observatory observatory;
 	
 	public static Observatory getObservatoryWithLargestAverage(){
+		if(observatories.isEmpty()){return null;}
+		else{
 		
 		for(Observatory i: observatories) {
 		   
@@ -62,7 +64,7 @@ public class Monitoring {
 		   
 			}
 		
-		}
+		}}
 		
 		System.out.println(observatory);
 		
