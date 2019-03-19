@@ -5,12 +5,12 @@ import java.util.regex.*;
 
 public class regexValidator {
 	protected Pattern thePattern1;
+	protected Pattern thePattern2;
 	protected Pattern thePattern3;
-	protected Pattern thePattern4;
 	
 	protected Matcher theMatcher1;
+	protected Matcher theMatcher2;
 	protected Matcher theMatcher3;
-	protected Matcher theMatcher4;
 	
 	protected static final String OBYEAR_REGEX = "^\\d{4}$";
 	protected static final String OBNAME_REGEX = "^[a-zA-Z]{1,20}$";
@@ -18,8 +18,8 @@ public class regexValidator {
 	
 	public regexValidator() {
 		thePattern1 = Pattern.compile(OBYEAR_REGEX);
-		thePattern3 = Pattern.compile(OBNAME_REGEX);
-		thePattern4 = Pattern.compile(OBCOUNTRY_REGEX);
+		thePattern2 = Pattern.compile(OBNAME_REGEX);
+		thePattern3 = Pattern.compile(OBCOUNTRY_REGEX);
 	}
 	
 	public boolean validateYear(final String obyear) {
@@ -28,12 +28,12 @@ public class regexValidator {
 		}
 	
 	public boolean validateName(final String obname) {
-		theMatcher3 = thePattern3.matcher(obname);
-			return theMatcher3.matches();
+		theMatcher2 = thePattern2.matcher(obname);
+			return theMatcher2.matches();
 		}
 	public boolean validateCountry(final String obcountry) {
-		theMatcher4 = thePattern4.matcher(obcountry);
-			return theMatcher4.matches();
+		theMatcher3 = thePattern3.matcher(obcountry);
+			return theMatcher3.matches();
 		}
 	
 	
