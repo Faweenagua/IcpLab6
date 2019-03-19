@@ -2,6 +2,14 @@ package theGalamseyArea;
 
 import java.util.regex.*;
 
+/**
+ * This class holds compares the user's input to make sure it is in the required format
+ * @author Eugenia Mawuenya AKPO
+ * @author Michael Dankwah AGYEMAN-PREMPEH
+ * @author Issifu ALHASSAN
+ * @author Francis AWEEENAGUA
+ * @version 1.0.0
+ */
 
 public class regexValidator {
 	protected Pattern thePattern1;
