@@ -1,3 +1,7 @@
+package theGalamseyArea;
+
+import java.util.Scanner;
+
 /*
  *A monitoring input/output class that monitors Galamsey objects.
  *@author Michael Dankwah AGYEMAN-PREMPEH
@@ -6,13 +10,13 @@
  *@author Eugenia AKPO
  */
 
-import java.util.Scanner;
-
-public class MonitoringIO {
+public class MonitoringIO extends regexValidator{
 
 
 
     public static void main(String[] args) {
+    	
+    	regexValidator validateIt =  new regexValidator();
 
         //instantiates two scanners for both String and Int inputs from the user.
         Scanner scan = new Scanner(System.in);
@@ -51,29 +55,87 @@ public class MonitoringIO {
                 case 1:
 
                     // if user's input in the main menu was 1, user inputs the details of the observatory for it to be created.
-                    System.out.println("Input name of Observatory");
+                    
+                	System.out.println("Input name of Observatory");
                     String obName = scan2.nextLine();
-                    ob1 = new Observatory();
-                    ob1.setName(obName);
-
-                    System.out.println("Enter Country");
+                    boolean success1 = validateIt.validateName(obName);
+                    while (true) {
+                    	success1 = validateIt.validateName(obName);
+                    	if (success1){
+                    		ob1 = new Observatory();
+                    		ob1.setName(obName);
+                    		break;
+                    	
+                    	}else {
+                    		System.out.println("Invalid input : Please input in the right format");
+                    		
+                    		obName = scan2.next();
+                    	}
+                    }
+                    
+                    
+                    
+                    System.out.println("Please Enter Country");
                     String obCountry = scan2.nextLine();
-                    ob1.setCountry(obCountry);
+                    boolean success2 = validateIt.validateCountry(obCountry);
+                    while (true) {
+                    	success2 = validateIt.validateCountry(obCountry);
+                    	if (success2){
+                    		ob1.setName(obCountry);
+                    		break;
+                    	
+                    	}else {
+                    		System.out.println("Invalid input : Please input in the right format");
+                    		
+                    		obCountry = scan2.next();
+                    	}
+                    }
+                    
+                    
+                    System.out.println("Please Enter The same Year twice:");
+                    int obYear = scan2.nextInt();
+                    while (true) {
+                    	if (scan2.hasNextInt()){
+                    		if(validateIt.validateYear(Integer.toString(obYear))) {
+                    			ob1.setYearStarted(obYear);
+                    			break;
+                    		}else{
+                    			System.out.println("Invalid input : Please input in the right format");
+                        		
+                        		obYear = scan2.nextInt();
+                    	
+                    		}
+                    	}else {
+                    			System.out.println("Invalid input : Please input in the right format");
+                    		
+                    			obYear = scan2.nextInt();
+                    		
+                    	}
+                    }
+                    
+                    
+                    
+                    System.out.println("Please Enter Area covered by Observatory");
+                    Double obArea = scan2.nextDouble();
+                    while (true) {
+                    	if (scan2.hasNextDouble()){
+                    		ob1.setAreaInSquareMeters(obArea);
+                    		break;
+                    	
+                    	}else {
+                    		System.out.println("Invalid input : Please input in the right format");
+                    		
+                    		obArea = scan2.nextDouble();
+                    	}
+                    }
+                    
 
-                    System.out.println("Enter Year Started");
-                    int obYear = scan.nextInt();
-                    ob1.setYearStarted(obYear);
-
-                    System.out.println("Enter Area Covered by Observatory In Square Kilometers");
-                    double obArea = scan.nextDouble();
-                    ob1.setAreaInSquareMeters(obArea);
-
-                    // After spcifying details of observatory, the created observatoru is added to the observatory list.
+                    // After specifying details of observatory, the created observatoru is added to the observatory list.
                     Monitoring.observatories.add(ob1);
                     // A notification is displayed to notify the user that the observatory has been created.
                     System.out.println("\n<<>> Notification: new observatory added <<>>");
                     break;
-
+                    
                 case 2:
 
                     //If user's input in the main menu was 2, user creates new "Galamsey" event
