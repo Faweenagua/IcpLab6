@@ -1,3 +1,5 @@
+package theGalamseyArea;
+
 import java.util.ArrayList;
 import java.util.Objects;
 /**
@@ -161,6 +163,3 @@ public class Observatory {
         return list;
     }
 }
-
-
-
