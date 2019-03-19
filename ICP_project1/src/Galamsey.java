@@ -1,3 +1,4 @@
+package theGalamseyArea;
 
 /**
  *A Galamsey class that identifies or detects Galamsey areas.
@@ -13,7 +14,7 @@ public class Galamsey {
     private int colourValue;
     private double latitude;
     private double longitude;
-    private String yearOfEvent;
+    private int yearOfEvent;
 
     /**
      * The default constructor
@@ -37,7 +38,7 @@ public class Galamsey {
      * @param Long is the longitude of the identified Galamsey area
      * @param EventYear is the year the Galamsey event took place
      */
-    public Galamsey( double Lat, double Long, String EventYear) {
+    public Galamsey( double Lat, double Long, int EventYear) {
         this.latitude = Lat;
         this.longitude = Long;
         this.yearOfEvent = EventYear;
@@ -51,7 +52,7 @@ public class Galamsey {
      * @param Long is the longitude of the identified Galamsey area
      * @param EventYear is the year the Galamsey event took place
      */
-    public Galamsey(String vegCol, int colVal, double Lat, double Long, String EventYear) {
+    public Galamsey(String vegCol, int colVal, double Lat, double Long, int EventYear) {
         this.vegetationColour = vegCol;
         this.colourValue = colVal;
         this.latitude = Lat;
@@ -98,7 +99,7 @@ public class Galamsey {
      * Mutator method for year of the event
      * @param eventYear
      */
-    public void setEventYear(String eventYear) {
+    public void setEventYear(int eventYear) {
         this.yearOfEvent = eventYear;
     }
 
@@ -143,7 +144,7 @@ public class Galamsey {
      * Accessor method for year of Event
      * @return yearOfEvent
      */
-    public String getEventYear() {
+    public int getEventYear() {
         return yearOfEvent;
     }
 
@@ -226,8 +227,8 @@ public class Galamsey {
         /**
          * Instantiation of two Galamsey Classes with their necessary parameter
          */
-        Galamsey areaOne = new Galamsey("Blue",2,-3.88,-4.00,"2019");
-        Galamsey areaTwo = new Galamsey("Green",3,3.78,4.00,"2018");
+        Galamsey areaOne = new Galamsey("Blue",2,-3.88,-4.00,2019);
+        Galamsey areaTwo = new Galamsey("Green",3,3.78,4.00,2018);
 
         System.out.println("Area One: " + areaOne.toString());
         System.out.println("\nArea Two: " + areaTwo.toString());
