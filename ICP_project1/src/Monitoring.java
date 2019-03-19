@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * This class holds information about all observatories
  * @author Eugenia Mawuenya AKPO
- * @author Michael PREMPEH
+ * @author Michael Dankwah AGYEMAN-PREMPEH
  * @author Issifu ALHASSAN
  * @author Francis AWEEENAGUA
  * @version 1.0.0
