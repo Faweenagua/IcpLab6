@@ -14,6 +14,7 @@ public class Observatory {
     private int yearStarted;
     private double areaInSquareKilometers;
     private ArrayList<Galamsey> events=new ArrayList<Galamsey>();
+    private Integer numberOfGalamseyEvents = 0;
     /**
      * Default constructor
      */
@@ -39,7 +40,27 @@ public class Observatory {
         this.yearStarted = yearStarted;
         this.areaInSquareKilometers = areaInSquareKilometers;
     }
-    public void addEvent(Galamsey g){ this.events.add(g);}
+    
+    public double getAreaInSquareKilometers() {
+        return areaInSquareKilometers;
+    }
+
+    public void setAreaInSquareKilometers(double areaInSquareKilometers) {
+        this.areaInSquareKilometers = areaInSquareKilometers;
+    }
+
+    public Integer getNumberOfGalamseyEvents() {
+        return numberOfGalamseyEvents;
+    }
+
+    public void setNumberOfGalamseyEvents(Integer numberOfGalamseyEvents) {
+        this.numberOfGalamseyEvents = numberOfGalamseyEvents;
+    }
+    
+    public void addEvent(Galamsey g){ 
+        this.events.add(g);
+        numberOfGalamseyEvents += 1;
+    }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -97,6 +118,7 @@ public class Observatory {
             if(i.getVegetationColourValue()==2){ yellow+=1; }
             if(i.getVegetationColourValue()==3){ brown+=1; }
         }
+        if(yellow==0 && brown==0 && green==0){return 0;}
         if(brown>=yellow && brown>=green){return 3;}
         if(yellow>=green && yellow>=brown){return 2;}
         if(green>=yellow && green>=brown){return 1;}
