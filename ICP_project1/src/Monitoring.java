@@ -111,6 +111,21 @@ public class Monitoring {
 		}
 		return isItEqual;
 	}
+	public static Observatory getObservatoryWithLargestArea(){
+		ArrayList<Double> largestArea=new ArrayList<Double>();
+		double Area=0;
+		Observatory observatory1 = null;
+		for(Observatory i: observatories) {
+			largestArea.add(i.getAreaInSquareMeters());
+			for(int j=0;j< largestArea.size();j++) {if(largestArea.get(j)>Area) {
+				Area = largestArea.get(j);}
+			if(i.getAreaInSquareMeters()==Area) {observatory1 = i;}
+			}
+		}
+		System.out.println("Area is "+Area);
+		System.out.println("The observatory with the largest Area is "+observatory1);
+		return observatory1;
+	}
 	/**
 	 * Operations are executed in the main method
 	 * @param args
