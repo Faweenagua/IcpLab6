@@ -70,6 +70,10 @@ public class Galamsey {
      */
     public void setVegetationColour(String vegCol) {
         this.vegetationColour = vegCol;
+        
+        if (vegCol.toLowerCase().equals("green")) this.setVegetationColourValue(1);
+        if (vegCol.toLowerCase().equals("yellow")) this.setVegetationColourValue(2);
+        if (vegCol.toLowerCase().equals("brown")) this.setVegetationColourValue(3);
     }
     /**
      * Mutator method for value of respective vegetation colour
