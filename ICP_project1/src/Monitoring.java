@@ -55,8 +55,8 @@ public class Monitoring {
 	}
 	/**
 	 * This method returns a list of all Galamsey whose vegetation colour value is greater than some arbitrary constant
-	 * @param number
-	 * @return List
+	 * @param number is the arbitrary constant
+	 * @return List containing Galamsey events with coulour values less than "number"
 	 */
 	public static ArrayList<Galamsey> ListOfGalamseysWithColourValueGreaterThan(double number) {
 	  ArrayList<Galamsey> List=new ArrayList<Galamsey>(); 
@@ -66,6 +66,12 @@ public class Monitoring {
 		//System.out.println(List);
 	    	   return List;
 	}
+	
+	/**
+	 * This method returns a list of all Galamsey whose vegetation colour value is less than some arbitrary constant
+	 * @param number is the arbitrary constant
+	 * @return List containing Galamsey events with coulour values less than "number"
+	 */
 
 	public static ArrayList<Galamsey> ListOfGalamseysWithColourValueLessThan(double number) {
 		ArrayList<Galamsey> List=new ArrayList<Galamsey>();
@@ -75,6 +81,13 @@ public class Monitoring {
 		//System.out.println(List);
 		return List;
 	}
+	
+	/**
+	 * This method returns a list of all Galamsey whose vegetation colour value is equal to some arbitrary constant
+	 * @param number is the arbitrary constant
+	 * @return List containing Galamsey events with coulour values equal to "number"
+	 */
+	
 	public static ArrayList<Galamsey> ListOfGalamseysWithColourValueEqualTo(double number) {
 		ArrayList<Galamsey> List=new ArrayList<Galamsey>();
 		for(Observatory i: observatories) {
